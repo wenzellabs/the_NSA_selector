@@ -3,6 +3,7 @@
 TICK=0.2
 
 IP=192.168.1.25
+#IP=nsa.gov
 #IP=255.255.255.255 # use -b with broadcast ping, and sizes up to around 1400 only
 
 if [ "$1x" == "x" ] ; then

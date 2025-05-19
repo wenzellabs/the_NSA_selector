@@ -9,6 +9,12 @@ you can purchase the NSA selector at [my little shop over at lectronz](https://l
 the NSA selector is a eurorack module with two ethernet jacks an one audio output.
 any bit on the network will be sent to the audio output.
 
+- 4 HP wide
+- current consumption:
+    -  12V : 100mA
+    -   5V : nothing
+    - -12V :   2mA
+
 ![the NSA selector schematic](pics/NSA_selector_switch_schematic.png)
 
 ## what it's not
