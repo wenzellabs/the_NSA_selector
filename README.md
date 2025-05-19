@@ -1,19 +1,13 @@
 # the NSA selector
 
-you can purchase the NSA selector at [my little shop over at lectronz](https://lectronz.com/stores/wenzellabs).
+you can purchase the NSA selector at [my little shop over at lectronz](https://lectronz.com/products/thensaselector).
 
 ![the NSA selector top](pics/NSA_top.jpg)  ![the NSA selector front](pics/NSA_front.jpg)   ![the NSA selector back](pics/NSA_back.jpg) 
 
 ## what is it
 
-the NSA selector is a eurorack module with two ethernet jacks an one audio output.
+the NSA selector is a eurorack module with two ethernet jacks and one audio output.
 any bit on the network will be sent to the audio output.
-
-- 4 HP wide
-- current consumption:
-    -  12V : 100mA
-    -   5V : nothing
-    - -12V :   2mA
 
 ![the NSA selector schematic](pics/NSA_selector_switch_schematic.png)
 
@@ -26,7 +20,7 @@ it's just tapped, intercepted to convert it to audio.
 
 ## examples
 
-watch [the NSA selector video](FIXME)
+watch [the NSA selector video](https://www.youtube.com/watch?v=vfgySTaM1TI)
 
 ![the NSA selector LAN flow](pics/NSA_selector_LAN_flow.png)
 
@@ -117,6 +111,12 @@ ports. the two front ports are switched, and the third port is only available
 internally as 4 bit MII bus. it is configured as mirror port of the two front
 ports and wired to a 4 bit DAC and a low-pass-filter.
 
+- 4 HP wide
+- current consumption:
+    -  12V : 100mA
+    -   5V : nothing
+    - -12V :   2mA
+
 ## assembling the kit
 
 both versions are available in my store, a fully assembled eurorack module
@@ -126,7 +126,7 @@ watch my [NSA selector kit assembly](https://www.youtube.com/watch?v=SXlfyeYuZuQ
 
 ## store
 
-you can purchase the NSA selector at [my little shop over at lectronz](https://lectronz.com/stores/wenzellabs).
+you can purchase the NSA selector at [my little shop over at lectronz](https://lectronz.com/products/thensaselector).
 
 ##### SEO
-#eurorack #theNSAselector #wenzellabs
+#eurorack #NSA #theNSAselector #wenzellabs #the_NSA_selector
