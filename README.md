@@ -14,7 +14,7 @@ any bit on the network will be sent to the audio output.
 ## what it's not
 
 this is not an "audio interface". we do not play back any "format" such as RTP
-or MP3 or WAV ot the like. the eurorack module does not "speak" any protocol.
+or MP3 or WAV or the like. the eurorack module does not "speak" any protocol.
 all traffic is forwarded from one network jack to the other unmodified.
 it's just tapped, intercepted to convert it to audio.
 
@@ -108,7 +108,7 @@ the NSA loves plaintext.
 
 the NSA selector is a fast ethernet (FE=100Mbps) network switch with three
 ports. the two front ports are switched, and the third port is only available
-internally as 4 bit MII bus. it is configured as mirror port of the two front
+internally as 4 bit MII bus. it is configured as a mirror port of the two front
 ports and wired to a 4 bit DAC and a low-pass-filter.
 
 - 4 HP wide
