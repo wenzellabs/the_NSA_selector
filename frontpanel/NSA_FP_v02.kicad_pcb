@@ -4905,6 +4905,56 @@
 		(uuid "aebd164c-1226-4acd-a203-8fdc6e9a134b")
 	)
 	(gr_line
+		(start 149 129)
+		(end 149 162)
+		(stroke
+			(width 1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "082f7be4-7283-4ad2-ae20-bab412e89ea4")
+	)
+	(gr_line
+		(start 122 147)
+		(end 130 145)
+		(stroke
+			(width 1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "2db9154f-756f-404c-8e28-797cee31f648")
+	)
+	(gr_line
+		(start 149 147)
+		(end 122 147)
+		(stroke
+			(width 1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7f5fa214-2356-45f7-970b-0577ea875d7c")
+	)
+	(gr_line
+		(start 122 147)
+		(end 130 149)
+		(stroke
+			(width 1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d01c956c-1020-4efe-b6c4-19b7ef3c0aff")
+	)
+	(gr_line
+		(start 149 150)
+		(end 149 147)
+		(stroke
+			(width 1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "db95bce2-353e-4805-96f8-0fc83fe0dbaa")
+	)
+	(gr_line
 		(start 114.75 72)
 		(end 118.75 78.8)
 		(stroke
@@ -8610,6 +8660,32 @@
 			(font
 				(size 2 2)
 				(thickness 0.5)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "LED_GRN: full-duplex Port 1\nLED_RED: 3V3 power\nLED_GRN: full-duplex Port 2"
+		(at 151 162 0)
+		(layer "F.SilkS")
+		(uuid "53f56b6c-23e5-4a21-bfde-eff0c5bf67af")
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.5)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "on any new production run,\npls do reduce the size of this hole\nmake it smaller (and a rect?) so that\na 3.5mm jack does NOT fit through.\nthere's just 3 LEDs behind it:"
+		(at 150.45 150.3 0)
+		(layer "F.SilkS")
+		(uuid "7176eb52-f092-45d4-a918-8ef8cc7d0e3a")
+		(effects
+			(font
+				(size 3 3)
+				(thickness 0.75)
 				(bold yes)
 			)
 			(justify left bottom)
