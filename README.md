@@ -112,6 +112,7 @@ internally as 4 bit MII bus. it is configured as a mirror port of the two front
 ports and wired to a 4 bit DAC and a low-pass-filter.
 
 - 4 HP wide
+- 55 mm deep, not exactly skiff friendly :(
 - current consumption:
     -  12V : 100mA
     -   5V : nothing
