@@ -96,7 +96,7 @@ there's so much I hadn't been listening into, like
 - doomscrolling on the various platforms
 - network backup
 - IoT stuff
-- remote desktop protocols
+- remote desktop protocols (VNC, RDP)
 - write your own code
 - bundle together ping, netcat, socat, nmap and whatnot and make them MIDI controllable through a software registered MIDI client
 
