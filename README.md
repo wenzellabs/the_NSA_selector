@@ -1,6 +1,6 @@
 # the NSA selector
 
-you can purchase the NSA selector at [my little shop over at lectronz](https://lectronz.com/products/thensaselector).
+you can purchase the NSA selector at [my little shop over at lectronz](https://lectronz.com/products/thensaselector) or for US, Canada and other worldwide markets through [Modular Addict](https://modularaddict.com/nsa-selector-full-kit-wenzel-labs).
 
 ![the NSA selector top](pics/NSA_top.jpg)  ![the NSA selector front](pics/NSA_front.jpg)   ![the NSA selector back](pics/NSA_back.jpg) 
 
@@ -127,7 +127,7 @@ watch my [NSA selector kit assembly](https://www.youtube.com/watch?v=SXlfyeYuZuQ
 
 ## store
 
-you can purchase the NSA selector at [my little shop over at lectronz](https://lectronz.com/products/thensaselector).
+you can purchase the NSA selector at [my little shop over at lectronz](https://lectronz.com/products/thensaselector) or for US, Canada and other worldwide markets through [Modular Addict](https://modularaddict.com/nsa-selector-full-kit-wenzel-labs).
 
 ##### SEO
 #eurorack #NSA #theNSAselector #wenzellabs #the_NSA_selector
