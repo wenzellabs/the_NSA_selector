@@ -117,6 +117,8 @@ ports and wired to a 4 bit DAC and a low-pass-filter.
     -  12V : 100mA
     -   5V : nothing
     - -12V :   2mA
+- the switch chip is a LAN9303
+- it reads configuration from a 24LC64 serial I2C EEPROM
 
 ## assembling the kit
 
