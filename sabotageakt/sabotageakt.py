@@ -2,25 +2,76 @@
 # -*- coding: utf-8 -*-
 
 # sabotageakt.py
-# This script is part of the SabotageAkt project.
-# It is designed to handle sabotage activities in a controlled environment.
-
-# atleast what Copilot thinks it is.
-# it's part of the NSA selector, a eurorack module that listens to raw ethernet.
+#
+# this is part of the NSA selector, a eurorack module that listens to raw ethernet.
+# 
+# sabotageakt lets you play images, videos, or any files on raw ethernet, using a MIDI keyboard.
+# 
+# this is a console MIDI client for the NSA selector, it downloads media files from a
+# web server, preferably plaintext over http without encryption or compression.
+#
+# the mapping of MIDI notes to files is done in a JSON file, which is loaded at startup.
+# the JSON file format is interoperable with Nick Starke's https://github.com/nstarke/nsa-midi
+# so you may use his tools to download media and generate the mapping files.
+#
 
 import mido
 import argparse
 import sys
+import json
+import os
+import subprocess
 
 def list_ports(ports):
     print("Available MIDI input ports:")
     for idx, port in enumerate(ports):
         print(f"  [{idx}] {port}")
 
+def load_mapping(mapping_file):
+    """Load MIDI note to URL mapping from JSON file."""
+    try:
+        with open(mapping_file, 'r') as f:
+            mapping = json.load(f)
+        return mapping
+    except FileNotFoundError:
+        print(f"Error: Mapping file '{mapping_file}' not found.")
+        sys.exit(1)
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON in mapping file '{mapping_file}': {e}")
+        sys.exit(1)
+
+def get_url_for_note(note, mapping):
+    """Get URL for a MIDI note from the mapping."""
+    if len(mapping) > 0:
+        index = note % len(mapping)
+        return mapping[index]
+    return None
+
+def get_media_file(url):
+    """Fork a wget process to download the media file, output to /dev/null."""
+    print(f"fetching {url}")
+    try:
+        # Fork wget process with output to /dev/null (fire and forget)
+        subprocess.Popen([
+            'wget', 
+            '-q',  # quiet mode
+            '-O', '/dev/null',  # output to /dev/null
+            url
+        ])
+    except FileNotFoundError:
+        print("Error: wget not found. Please install wget.")
+    except Exception as e:
+        print(f"Error launching wget: {e}")
+
 def main():
-    parser = argparse.ArgumentParser(description="MIDI note printer")
+    parser = argparse.ArgumentParser(description="MIDI note to URL mapper for downloading media files via the NSA selector")
     parser.add_argument('-p', '--port', type=int, help="Port number to open")
+    parser.add_argument('-m', '--mapping', default='default.json', 
+                        help="MIDI note to URL JSON mapping file (default: default.json)")
     args = parser.parse_args()
+
+    mapping = load_mapping(args.mapping)
+    print(f"Loaded mapping from '{args.mapping}'")
 
     ports = mido.get_input_names()
     if not ports:
@@ -47,8 +98,12 @@ def main():
         print("Listening for MIDI notes. Press Ctrl+C to exit.")
         try:
             for msg in inport:
-                if msg.type in ('note_on', 'note_off'):
-                    print(msg)
+                if msg.type == 'note_on' and msg.velocity > 0:
+                    url = get_url_for_note(msg.note, mapping)
+                    if url:
+                        get_media_file(url)
+                    else:
+                        print(f"  -> No mapping found for note {msg.note}")
         except KeyboardInterrupt:
             print("\nExiting...")
 
