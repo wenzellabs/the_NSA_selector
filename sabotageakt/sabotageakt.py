@@ -47,10 +47,21 @@ def get_url_for_note(note, mapping):
         return mapping[index]
     return None
 
-def get_media_file(url):
+def get_media_file(url, monophonic=False):
     """Fork a wget process to download the media file, output to /dev/null."""
     print(f"fetching {url}")
     try:
+        if monophonic:
+            # Kill all existing wget processes and wait for them to finish
+            try:
+                subprocess.run(['killall', 'wget'], check=False)
+            except FileNotFoundError:
+                # killall not found, try pkill
+                try:
+                    subprocess.run(['pkill', 'wget'], check=False)
+                except FileNotFoundError:
+                    print("Warning: Neither killall nor pkill found, cannot kill existing wget processes")
+        
         # Fork wget process with output to /dev/null (fire and forget)
         subprocess.Popen([
             'wget', 
@@ -68,6 +79,8 @@ def main():
     parser.add_argument('-p', '--port', type=int, help="Port number to open")
     parser.add_argument('-m', '--mapping', default='default.json', 
                         help="MIDI note to URL JSON mapping file (default: default.json)")
+    parser.add_argument('-1', '--monophonic', action='store_true',
+                        help="monophonic mode: just one download at a time (WARNING: will kill all existing wget processes on this system!)")
     args = parser.parse_args()
 
     mapping = load_mapping(args.mapping)
@@ -101,7 +114,7 @@ def main():
                 if msg.type == 'note_on' and msg.velocity > 0:
                     url = get_url_for_note(msg.note, mapping)
                     if url:
-                        get_media_file(url)
+                        get_media_file(url, args.monophonic)
                     else:
                         print(f"  -> No mapping found for note {msg.note}")
         except KeyboardInterrupt:
