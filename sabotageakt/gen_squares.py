@@ -53,22 +53,22 @@ def generate_square_wave(frequency, duration, sample_rate=25_000_000):
 
 def main():
     parser = argparse.ArgumentParser(description="Generate square wave binary files for NSA selector")
-    parser.add_argument('-n', '--num-notes', type=int, default=36, 
-                        help="Number of note files to generate (default: 36)")
     parser.add_argument('-d', '--duration', type=float, default=0.5, 
                         help="Duration of each file in seconds (default: 0.5)")
     args = parser.parse_args()
     
     sample_rate = 25_000_000  # 25M/s
-    base_freq = 65.41  # C2 frequency in Hz
+    base_freq = 8.18  # MIDI note 0 frequency in Hz
+    num_notes = 128  # Generate all 128 MIDI notes (0-127)
     
-    print(f"Generating {args.num_notes} square wave files")
+    print(f"Generating {num_notes} square wave files")
     print(f"Sample rate: {sample_rate:,} Hz")
     print(f"Duration: {args.duration} seconds")
-    print(f"Base frequency (C2): {base_freq} Hz")
+    print(f"Base frequency (MIDI note 0): {base_freq} Hz")
+    print(f"Frequency range: {base_freq:.2f} Hz to {freq_from_note(127, base_freq):.2f} Hz")
     print()
     
-    for note_num in range(args.num_notes):
+    for note_num in range(num_notes):
         filename = f"square_{note_num:03d}.raw"
         frequency = freq_from_note(note_num, base_freq)
         
@@ -84,7 +84,7 @@ def main():
         file_size = len(wave_data)
         print(f"  -> {file_size:,} bytes written")
     
-    print(f"\nGenerated {args.num_notes} files successfully!")
+    print(f"\nGenerated {num_notes} files successfully!")
 
 if __name__ == "__main__":
     main()
